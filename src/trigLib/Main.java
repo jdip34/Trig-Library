@@ -14,7 +14,7 @@ public class Main {
 		for (Failure failure : result.getFailures()) {
 			System.out.println(failure.toString());
 		}
-		double input = (Pi) / 2;
+		double input = (Pi) / 3;
 
 		System.out.println("Test Sin: " + sin(input));
 		System.out.println("Test Cos: " + cos(input));
@@ -23,6 +23,8 @@ public class Main {
 		System.out.println("Test Sec: " + sec(input));
 		System.out.println("Test Cot: " + cot(input));
 		System.out.println("Test arcsin: " + arcsin(sin(input)));
+		System.out.println("Test arccos: " + arccos(cos(input)));
+		System.out.println("Test arctan: " + arctan(tan(input)));
 		System.out.println("Result==" + result.wasSuccessful());
 	}
 
@@ -141,13 +143,21 @@ public class Main {
 	}
 
 	public static double arccos(double x) {
+		x= (Pi/2)-(arcsin(x));
 
 		return x;
 	}
 
 	public static double arctan(double x) {
-
-		x = 1 / cos(x);
+		for (int n = 1; n <= 40; n++) {
+			if (n % 2 == 0) {
+				x = x - ((exp((-1), n)) / (((2 * n) + 1)) * (exp(x, (2 * n) + 1)));
+				// System.out.println("Test " + n + ": " + x);
+			} else if (n % 2 == 1) {
+				x = x + ((exp((-1), n)) / (((2 * n) + 1)) * (exp(x, (2 * n) + 1)));
+				// System.out.println("Test " + n + ": " + x);
+			}
+		}
 		return x;
 	}
 
