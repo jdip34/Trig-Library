@@ -165,6 +165,7 @@ public class Main {
 		double z = x;
 		for (int i = 1; i < y; i++) {
 			x = x * z;
+			
 		}
 		return x;
 	}
